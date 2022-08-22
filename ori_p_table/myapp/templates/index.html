@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<style>
+			table,
+			th,
+			td {
+				border-collapse: collapse;
+				margin-bottom: 100px;
+			}
+			
+			th,
+			td {
+				padding: 20px;
+				height: 80%;
+				font-weight: 1000;
+				font-size: 2rem;
+			}
+			td{
+				width: 5%;
+			}
+			a{
+				text-decoration: none;
+			}
+			td:hover{
+				transform: scale(1.5);
+				background-color: rgba(253, 253, 253, 0.9);
+			}
+			
+			#example1 .hover{
+				display:none;
+			}
+
+			#example1 .nohower{
+				display:block;
+			}
+
+			#example1:hover .hover{
+				display:block;
+				font-size: 0.8rem;
+				border-color: rgba(0,0,0,0.1);
+				z-index: 1;
+				
+			}
+
+			#example1:hover .nohower{
+				display:none;
+			}
+		</style>
+	</head>
+<body>
+
+<table style="width:100%">
+	{% for k in list %}
+	<tr>
+		{% for i,j,val,c,c2 in k %}
+			{% if c == 0 %}
+				<td style="color:rgb(190,{{ c }},200); opacity:1">{{ val }}</td>
+			{% else %}	
+				<td id="example1" style="border: 1px solid black; color:rgb(190,{{ c }},200); opacity:1" class="hoverer"><span class="nohower">{{ val }}</span><span class="hover">{{ c2 }}</span></td>
+			{% endif %}
+
+		{% endfor %}
+	</tr>
+	{% endfor %}
+</table>
+<table style="width:100%">
+	{% for k in list2 %}
+	<tr>
+		{% for i,j,val,c,c2 in k %}
+			{% if c == 0 %}
+				<td style="color:rgb(190,{{ c }},200); opacity:1">{{ val }}</td>
+			{% else %}	
+				<td id="example1" style="border: 1px solid black;color:rgb(190,{{ c }},200);opacity: 1" class="hoverer"><span class="nohower">{{ val }}</span><span class="hover">{{ c2 }}</span></td>
+			{% endif %}
+		{% endfor %}
+	</tr>
+	{% endfor %}
+
+	
+	
+</table>
+</body>
+</html>        
